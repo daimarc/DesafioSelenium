@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +38,7 @@ public class RegistrarUsuarioPage extends BasePage {
     private WebElement botaoCadastrar;
 
 
-    public void registrarNovoUsuario(String email, String nome, String senha, String confsenha) throws InterruptedException {
+    public LoginPage registrarNovoUsuario(String email, String nome, String senha, String confsenha) throws InterruptedException {
 
         campoEmail.clear();
         campoEmail.sendKeys(email);
@@ -69,7 +68,6 @@ public class RegistrarUsuarioPage extends BasePage {
       //  }
 
 
-        //botão cadastrar
         botaoCadastrar.click();
 
         //Fechar janela de conta criada com sucesso, esperando até que o elemento fique visível
@@ -77,6 +75,8 @@ public class RegistrarUsuarioPage extends BasePage {
         WebElement elementoVisivel = wait.until(ExpectedConditions.visibilityOfElementLocated(elementoLocator));
         // Realizar o clique após o elemento ficar visível
         elementoVisivel.click();
+
+        return new LoginPage(navegador);
 
     }
 

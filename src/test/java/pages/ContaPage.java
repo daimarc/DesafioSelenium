@@ -28,16 +28,20 @@ public class ContaPage extends BasePage {
     private WebElement botaoSair;
 
     // Vou clicar no botão Sair, da tela da Conta
-    public void clicarSair(){
+    public LoginPage clicarSair(){
         botaoSair.click();
+
+        return new LoginPage(navegador);
     }
 
     @FindBy(xpath = "//*[@id=\"btn-TRANSFERÊNCIA\"]")
     private WebElement botaoTransferencia;
 
     // Vou clicar no botão Transferência da tela da Conta
-    public void clicarEmTransferencia(){
+    public TransferenciaPage clicarEmTransferencia(){
         botaoTransferencia.click();
+
+        return new TransferenciaPage(navegador);
     }
 
 
